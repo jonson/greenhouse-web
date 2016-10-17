@@ -20,7 +20,7 @@ To start a web server for the application, run:
 
 MIT License
 
-Copyright (c) [2016] [dajodi]
+Copyright (c) 2016 dajodi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
