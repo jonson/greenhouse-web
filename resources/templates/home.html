@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+
+  <div class="col-sm-6 col-md-4">
+
+    <div class="card">
+      <img class="card-img-top home-thumb" src="/img/basil.jpg" alt="Basil">
+      <div class="card-block">
+        <h4 class="card-title">Basil</h4>
+        <p>Latest Reading: {{basil}}</p>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="col-sm-6 col-md-4">
+
+    <div class="card">
+      <img class="card-img-top home-thumb" src="/img/thyme.jpg" alt="Thyme">
+      <div class="card-block">
+        <h4 class="card-title">Thyme</h4>
+        <p>Latest Reading: {{thyme}}</p>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="col-sm-6 col-md-4">
+
+    <div class="card">
+      <img class="card-img-top home-thumb" src="/img/rosemary.jpg" alt="Rosemary">
+      <div class="card-block">
+        <h4 class="card-title">Rosemary</h4>
+        <p>Latest Reading: {{rosemary}}</p>
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+ 
+{% endblock %}
