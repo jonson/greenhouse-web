@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block page-css %}
+  <link rel="stylesheet" href="/css/rickshaw.min.css">
+{% endblock %}
+
+{% block page-scripts %}
+  <script src="/js/d3.v3.js"></script>
+  <script src="/js/d3.layout.min.js"></script>
+  <script src="/js/rickshaw.min.js"></script>
+
+<script>
+var sensor = '{{sensor}}';
+var sensorValues = {{history|json|safe}};
+
+var scales = [];
+
+var _min = d3.min(sensorValues, function(d) { return d.y;})
+// var _max = d3.max(sensorValues, function(d) { return d.y;})
+var scale = d3.scale.linear().domain([_min, 1023]).nice();
+
+var graph = new Rickshaw.Graph( {
+    element: document.querySelector("#chart"),
+    width: 600,
+    height: 400,
+    renderer: 'line',
+    series: [{
+        color: 'steelblue',
+        data: sensorValues,
+        scale: scale
+    }]
+});
+
+new Rickshaw.Graph.Axis.Y.Scaled({
+  graph: graph,
+  scale: scale,
+  tickFormat: Rickshaw.Fixtures.Number.formatKMBT
+});
+// var yAxis = new Rickshaw.Graph.Axis.Y({
+//     graph: graph,
+//     tickFormat: Rickshaw.Fixtures.Number.formatKMBT
+// });
+
+var time = new Rickshaw.Fixtures.Time();
+var hours = time.unit('hours');
+new Rickshaw.Graph.Axis.Time({
+    graph: graph,
+    timeFixture: new Rickshaw.Fixtures.Time.Local(),
+    // timeUnit: hours
+});
+
+new Rickshaw.Graph.HoverDetail({
+  graph: graph,
+  xFormatter: function(x) {
+                return new Date( x * 1000 ).toLocaleString();
+                    }
+
+});
+
+
+graph.render();
+
+</script>
+{% endblock %}
+
+{% block content %}
+  <div id="chart"></div>
+{% endblock %}
