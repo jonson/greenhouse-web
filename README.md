@@ -1,8 +1,8 @@
 # greenhouse-web
 
-The frontend for http://greenhouse.dajodi.com.  This is an experiment in learning clojure using Luminus framework.
+The frontend for http://greenhouse.dajodi.com.  This is an experiment in learning clojure using the Luminus framework.
 
-The data presented is from an influxdb server which is constantly being populated by moisture sensors in multiple plants I am growing.
+The data presented is from an influxdb server which is constantly being populated by sensors reading the moisture level in multiple plants I have around my home.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ To start a web server for the application, run:
 
 MIT License
 
-Copyright (c) [2016] [dajodi]
+Copyright (c) 2016 dajodi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
